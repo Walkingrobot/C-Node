@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}C-Node Dashboard{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+            <link href="{{ asset('bundles/user/css/main.css') }}" rel="stylesheet" />
+{% endblock %}   
+{% block javascripts %}
+{{ parent() }}
+            <script src="{{ asset('js/main.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+  <div class="jumbotron">
+                    <h1>Your Dashboard</h1>
+                    <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+                    <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a>
+                    </p>
+                </div>
+{% endblock %}

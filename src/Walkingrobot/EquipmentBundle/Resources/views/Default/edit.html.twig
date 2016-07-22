@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+            <link href="{{ asset('bundles/user/css/main.css') }}" rel="stylesheet" />
+{% endblock %}   
+{% block javascripts %}
+{{ parent() }}
+            <script src="{{ asset('js/main.js') }}"></script>
+{% endblock %}
+
+{% block title %}C-Node Equipment{% endblock %}
+
+{% block body %}
+    <h1>Device edit</h1>
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input type="submit" value="Edit" />
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('device_index') }}">Back to the list</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input role="button" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

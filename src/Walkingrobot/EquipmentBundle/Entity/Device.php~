@@ -1,0 +1,57 @@
+<?php
+
+namespace Walkingrobot\EquipmentBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="device")
+ */
+class Device
+{
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="string", length=20) 
+     */
+    private $pricing;
+
+    /**
+     * @ORM\Column(type="decimal", scale=2)
+     */
+    private $hourly_price;
+
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $require_operator_certification;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $require_operator_pre_check;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $in_maintenance_mode;
+
+
+}

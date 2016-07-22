@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+            <link href="{{ asset('bundles/equipment/css/main.css') }}" rel="stylesheet" />
+{% endblock %}   
+{% block javascripts %}
+{{ parent() }}
+            <script src="{{ asset('bundles/equipment/js/main.js') }}"></script>
+{% endblock %}
+
+{% block title %}C-Node - {{ device.name }}{% endblock %}
+
+{% block body %}
+    <div class="page-header">
+        <h1>{{ device.name }}</h1>
+    </div>
+    
+    
+    {{ form_start(delete_form) }}
+        <a class="btn btn-primary" href="{{ path('device_index') }}">Make a reservation</a>
+    
+        <div class="btn-group" role="group" aria-label="...">
+        <input class="btn btn-danger" type="submit" value="Delete" />
+        <a class="btn btn-primary" href="{{ path('device_edit', { 'id': device.id }) }}">Edit</a>
+        <a class="btn btn-default" href="{{ path('device_index') }}">Back to the list</a>
+        </div>
+        
+        
+    {{ form_end(delete_form) }}
+
+        <div class="well">{{ device.description }}l</div>
+            
+            <div class="alert alert-success" role="alert">Device is ready and free.</div>
+            <div class="alert alert-info" role="alert">Device is currently being used.</div>
+            <div class="alert alert-warning" role="alert">No communication with device.</div>
+            <div class="alert alert-warning" role="alert">Device is undergoing maintance.</div>
+            <div class="alert alert-danger" role="alert">Emergency !</div>
+           
+            
+  
+            <tr>
+                <th>Price calculator</th>
+                <td>{{ device.pricing }}</td>
+            </tr>
+            <tr>
+                <th>Hourly_price</th>
+                <td>{{ device.hourlyprice }}</td>
+            </tr>
+            <tr>
+                <th>Operator certification</th>
+                <td>{% if device.requireoperatorcertification %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Require operator_pre_check</th>
+                <td>{% if device.requireoperatorprecheck %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>In_maintenance_mode</th>
+                <td>{% if device.inmaintenancemode %}Yes{% else %}No{% endif %}</td>
+            </tr>
+     
+
+  
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+            <link href="{{ asset('bundles/user/css/main.css') }}" rel="stylesheet" />
+{% endblock %}   
+{% block javascripts %}
+{{ parent() }}
+            <script src="{{ asset('bundles/user/js/main.js') }}"></script>
+{% endblock %}
+
+{% block title %}C-Node Equipment{% endblock %}
+
+{% block body %}
+    <div class="page-header">
+        <h1>Create a new device</h1>
+    </div>
+        
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <div class="btn-group" role="group" aria-label="...">
+        <input class="btn btn-success" type="submit" value="Create" />
+        <a class="btn btn-default" href="{{ path('device_index') }}">Back to the list</a>
+        </div>
+    {{ form_end(form) }}
+
+{% endblock %}
+
+
